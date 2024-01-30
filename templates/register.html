@@ -52,7 +52,27 @@
         button:hover {
             background-color: #0056b3;
         }
+        .register-button{
+            display:flex;
+            justify-content: center;
+        }
+        #register{
+            text-align: center;
+            margin:5px 0px;
+        }
     </style>
+     <script>
+        // JavaScript to remove the prediction message after a delay
+        window.onload = function() {
+            // Select the prediction message element by its id
+            var predictionMessage = document.getElementById('register');
+
+            // Set a timeout function to remove the prediction message after 5 seconds (5000 milliseconds)
+            setTimeout(function() {
+                predictionMessage.style.display = 'none'; // Hide the prediction message
+            }, 30000); // Adjust the delay (in milliseconds) as needed
+        };
+    </script>
 </head>
 <body>
     <h2>User Registration</h2>
@@ -61,7 +81,11 @@
         <input type="text" id="username" name="username"><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Register">
+        <div>
+            <div id="register">{{register_text}}</div>
+            <div class="register-button">
+               <button  type="submit">Register</button>
+            </div>
     </form>
 </body>
 </html>

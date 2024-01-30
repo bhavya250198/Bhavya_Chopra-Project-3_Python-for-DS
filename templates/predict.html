@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>House Loan Eligibility Prediction</title>
+    <script>
+        // JavaScript to remove the prediction message after a delay
+        window.onload = function() {
+            // Select the prediction message element by its id
+            var predictionMessage = document.getElementById('prediction');
+
+            // Set a timeout function to remove the prediction message after 5 seconds (5000 milliseconds)
+            setTimeout(function() {
+                predictionMessage.style.display = 'none'; // Hide the prediction message
+            }, 30000); // Adjust the delay (in milliseconds) as needed
+        };
+    </script>
+    <style>
+        body {
+          background-color: #f0f0f0; /* Set background color */
+          margin: 0; /* Remove default body margin */
+          padding: 0; /* Remove default body padding */
+          text-align: center;
+           /* Use flexbox for center alignment */
+          justify-content: center; /* Center content horizontally */
+          align-items: center; /* Center content vertically */
+          height: 100vh; /* Make the body fill the viewport height */
+        }
+        .prediction {
+            font-weight: bold; /* Set text to bold */
+            font-size: 24px; /* Set font size to 24 pixels */
+            text-decoration: underline; /* Add underline */
+        }
+        #form-container {
+          background-color: #fff; /* Set background color for form container */
+          padding: 20px; /* Add padding to form container */
+          border-radius: 8px; /* Add border radius to form container */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow to form container */
+          width: 400px; /* Set width of form container */
+        }
+        form {
+          display: inline-flex; /* Use inline flex for form elements */
+          flex-direction: column; /* Arrange form elements vertically */
+        }
+        form input[type="text"],
+        form select {
+          margin-bottom: 10px; /* Add space between form elements */
+          padding: 8px; /* Add padding to form elements */
+          border: 1px solid #ccc; /* Add border to form elements */
+          border-radius: 4px; /* Add border radius to form elements */
+        }
+        form input[type="submit"] {
+          background-color: #007bff; /* Set background color for submit button */
+          color: #fff; /* Set text color for submit button */
+          border: none; /* Remove border from submit button */
+          padding: 10px 20px; /* Add padding to submit button */
+          border-radius: 4px; /* Add border radius to submit button */
+          cursor: pointer; /* Add cursor pointer to submit button */
+        }
+        form input[type="submit"]:hover {
+          background-color: #0056b3; /* Change background color on hover */
+        }
+        #prediction {
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+      </style>
+  </head>
+  <body>
+    <h2>House Loan Eligibility Prediction</h2>
+    <form action="/enter_details" method="post">
+      <table>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <select name="Gender">
+                <option value="1" >Male</option>
+                <option value="0">Female</option>
+               
+            </select>
+        </td>
+        </tr>
+        <tr>
+          <td>Married:</td>
+          
+            <td>
+                <select name="married">
+                  <option value="1" selected>Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </td>
+        </tr>
+        <tr>
+          <td>Dependents:</td>
+          <td><input type="number" name="dependents" ></td>
+        </tr>
+        <tr>
+          <td>Education:</td>
+          <td>
+            <select name="education">
+                <option value="1" selected>Graduate</option>
+                <option value="0">Not Graduate</option>
+             </select>
+        </td>
+        </tr>
+        <tr>
+          <td>Self Employed:</td>
+          <td>
+            <select name="self_employed">
+                <option value="1">Yes</option>
+                <option value="0" >No</option>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Applicant Income ($):</td>
+          <td><input type="number" name="Applicant Income" ></td>
+        </tr>
+        <tr>
+          <td>Coapplicant Income ($):</td>
+          <td><input type="number" name="Coapplicant Income" ></td>
+        </tr>
+        <tr>
+          <td>Loan Amount in thousands ($):</td>
+          <td><input type="number" name="Loan Amount" ></td>
+        </tr>
+        <tr>
+          <td>Loan Amount Term (in months):</td>
+          <td><input type="number" name="Loan Amount Term" ></td>
+        </tr>
+        <tr>
+          <td>Credit History:</td>
+          <td>
+            <select name="Credit History">
+                <option value="1" >Yes</option>
+                <option value="0">No</option>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Property Area:</td>
+          <td>
+            <select name="Property Area">
+                <option value="1">Urban</option>
+                <option value="2" >Semiurban</option>
+                <option value="0">Rural</option>
+              </select>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="Submit">
+    </form><br>
+    <div id="prediction">
+        <p>{{pred_text}}</p>
+    </div>
+    <form action="/" method="post">
+      <input type="submit" value="Press here to logout">
+    </form>
+  </body>
+</html>
+
