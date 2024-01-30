@@ -15,9 +15,9 @@ mysql = MySQL(app)
 app.secret_key = 'your_secret_key'
 
 
-# @app.route('/')
-# def home():
-#     return render_template('home.html')
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
